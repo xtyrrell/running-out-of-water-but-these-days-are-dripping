@@ -1,23 +1,30 @@
 {
   "name": "running-out-of-water-but-these-days-are-dripping-compiler",
   "version": "1.0.0",
-  "description": "A compiler targeting WASM for the esoteric programming language, 'Running out of Water but these Days are Dripping'.",
+  "description": "A compiler written in TypeScript targeting WASM for the esoteric programming language, 'Running out of Water but these Days are Dripping' designed by the author.",
   "main": "index.js",
   "directories": {
     "test": "__tests__"
   },
   "scripts": {
-    "test": "jest"
+    "test": "yarn run test:tsc && yarn run test:jest",
+    "test:tsc": "tsc --noEmit",
+    "test:jest": "jest",
+    "test:watch": "jest --watch",
+    "bundle": "browserify web/index.ts -p [ tsify ] > web/bundle.js"
   },
   "devDependencies": {
     "@types/jest": "^24.0.11",
     "@types/node": "^11.13.4",
-    "@types/webassembly-js-api": "^0.0.3",
     "jest": "^24.7.1",
     "ts-jest": "^24.0.2",
     "typescript": "^3.4.3"
   },
   "keywords": ["esolang", "compiler"],
   "author": "xtyrrell",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "browserify": "^17.0.0",
+    "tsify": "^5.0.2"
+  }
 }
