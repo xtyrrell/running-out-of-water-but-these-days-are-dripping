@@ -27,6 +27,7 @@ const regexMatcher = (regex: string, type: TokenType): Matcher => (
 };
 
 // matchers in precedence order
+// TODO: Fix these matchers so they pass the tests
 const matchers = [
     regexMatcher("[.0-9]+", "number"),
     regexMatcher(`(${keywords.join("|")})`, "keyword"),
